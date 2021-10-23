@@ -96,7 +96,9 @@ class MixOrMatch {
     this.matchedCards.push(card2)
     card1.classList.add('matched')
     card2.classList.add('matched')
-    this.audioController.match();
+    setTimeout(() => {
+      this.audioController.match();
+    }, 500)
     if(this.matchedCards.length === this.cardArray.length){
       this.victory();
     }
@@ -133,7 +135,7 @@ class MixOrMatch {
   victory() {
     clearInterval(this.countDown);
     this.audioController.victory();
-    document.getElementById('game-over-text').classList.add('visible')
+    document.getElementById('victory-text').classList.add('visible')
   }
 
   shuffleCards() {
